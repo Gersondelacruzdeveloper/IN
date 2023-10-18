@@ -45,6 +45,22 @@ from .serializers import (UserProfileSerializer, MessageSerializer,
 #     else:
 #         return Response({'error': 'Authentication failed.'}, status=status.HTTP_401_UNAUTHORIZED)
 
+@api_view(['GET'])
+def apiOverview(request):
+	api_urls = {
+		'users':'api/users/',
+		'Message':'message/',
+		'Group Mssage/':'api/group-message/',
+		'call/':'api/call/',
+		'voice-recognition':'api/voice-recognition/',
+        'Face Recognition':'api/face-recognition',
+        'Atatus':'api/status',
+        'Status Media':'api/status-media',
+        'screen Sharing session':'api/screen-sharing-session',
+        'Streamingn Session/':'api/streaming_session/',
+        'connected_users/':'api/connected_users/'
+		}
+	return Response(api_urls)
 
 
 @api_view(['GET'])
@@ -131,7 +147,6 @@ def get_streaming_session(request):
     screen_sharing_session = StreamingSession.objects.all()
     serializer = StreamingSessionSerializer(screen_sharing_session, many=True)
     return Response(serializer.data)
-
 
 
 @api_view(['GET'])

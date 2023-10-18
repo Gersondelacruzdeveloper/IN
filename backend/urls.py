@@ -3,6 +3,7 @@ from . import views
 
 
 urlpatterns = [
+    path('', views.apiOverview),
     path('users/', views.get_users),
     path('message/', views.get_message),
     path('group-message/', views.get_group_message),
@@ -15,5 +16,5 @@ urlpatterns = [
     path('status-media/', views.get_status_media),
     path('screen-sharing-session/', views.get_screen_sharing_session),
     path('streaming_session/', views.get_streaming_session),
-    path('get_connected_users/', views.get_connected_users),
+    path('connected_users/', views.get_connected_users),
 ]
